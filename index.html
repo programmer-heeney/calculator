@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <title>A simple calculator</title>
     <meta name="description" content="Calculator made by Heeney" />
     <meta name="author" content="Heeney" />
     <link rel="icon" type="image/png" href="imgs/cal_favicon.png" />
@@ -19,54 +19,35 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <section id="calculator">
+    <section id="container">
       <div class="calculator__container">
-        <!-- Display -->
-        <div class="calculator__display"></div>
-        <!-- Commands row -->
-        <div class="calculator__commands-row">
-          <ul class="commands-row">
-            <li class="commands-row-btn">
-              <button>C</button>
-              <button>CE</button>
-              <button>%</button>
-            </li>
-          </ul>
+        <div id="result">
+          <div id="history">
+            <p id="history-value"></p>
+          </div>
+          <div id="output">
+            <p id="output-value"></p>
+          </div>
         </div>
-        <!-- Numbers -->
-        <div class="calculator__numbers">
-          <ul class="numbers">
-            <li class="numbers-btn">
-              <button>7</button>
-              <button>8</button>
-              <button>9</button>
-            </li>
-            <li class="numbers-btn">
-              <button>4</button>
-              <button>5</button>
-              <button>6</button>
-            </li>
-            <li class="numbers-btn">
-              <button>1</button>
-              <button>2</button>
-              <button>3</button>
-            </li>
-            <li class="numbers-btn">
-              <button>0</button>
-            </li>
-          </ul>
-        </div>
-        <!-- Commands column -->
-        <div class="calculator__commands-column">
-          <ul class="commands-column">
-            <li class="commands-column-btn">
-              <button>%</button>
-              <button>*</button>
-              <button>+</button>
-              <button>-</button>
-              <button>=</button>
-            </li>
-          </ul>
+        <div id="keyboard">
+          <button class="operator" id="clear">C</button>
+          <button class="operator" id="backspace">CE</button>
+          <button class="operator" id="%">%</button>
+          <button class="operator" id="+">+</button>
+          <button class="number" id="7">7</button>
+          <button class="number" id="8">8</button>
+          <button class="number" id="9">9</button>
+          <button class="operator" id="*">x</button>
+          <button class="number" id="4">4</button>
+          <button class="number" id="5">5</button>
+          <button class="number" id="6">6</button>
+          <button class="operator" id="-">-</button>
+          <button class="number" id="1">1</button>
+          <button class="number" id="2">2</button>
+          <button class="number" id="3">3</button>
+          <button class="operator" id="+">+</button>
+          <button class="number" id="0">0</button>
+          <button class="operator" id="=">=</button>
         </div>
       </div>
     </section>
