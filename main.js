@@ -22,9 +22,16 @@ operators.forEach((operator) => {
           printHistory(history);
         }
         if (output != "") {
+          if (getHistory().indexOf("=") != -1) {
+            printHistory("");
+            history = getHistory();
+          }
           output = reverseNumberFormat(output);
           history = history + output;
           if (operator.id == "=") {
+            if (getHistory() == "") {
+              return;
+            }
             let result = eval(history);
             history = history + operator.id;
             printHistory(history);
@@ -69,7 +76,7 @@ function printOutput(num) {
   document.getElementById("output-value").innerText = getFormattedNumber(num);
 }
 function getFormattedNumber(num) {
-  if (num == "" || num == "-") {
+  if (num === "" || num == "-") {
     return "";
   }
   const n = Number(num);
