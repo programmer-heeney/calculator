@@ -26,8 +26,9 @@ operators.forEach((operator) => {
           history = history + output;
           if (operator.id == "=") {
             let result = eval(history);
+            history = history + operator.id;
+            printHistory(history);
             printOutput(result);
-            printHistory("");
           } else {
             history = history + operator.id;
             printHistory(history);
@@ -42,8 +43,12 @@ operators.forEach((operator) => {
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    let output = reverseNumberFormat(getOutput());
     if (output != NaN) {
+      if (getHistory().indexOf("=") != -1) {
+        printOutput("");
+        printHistory("");
+      }
+      let output = reverseNumberFormat(getOutput());
       output = output + number.innerText;
       printOutput(output);
     }

@@ -108,6 +108,11 @@ body {
   font-weight: var(--weight-bold);
 }
 
+#output-value {
+  width: 100%;
+  overflow: auto;
+}
+
 /* Keyboard */
 #keyboard {
   width: 100%;
