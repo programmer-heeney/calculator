@@ -50,12 +50,15 @@ operators.forEach((operator) => {
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
+    if (getHistory().indexOf("=") != -1) {
+      printOutput("");
+      printHistory("");
+    }
     if (output != NaN) {
-      if (getHistory().indexOf("=") != -1) {
-        printOutput("");
-        printHistory("");
-      }
       let output = reverseNumberFormat(getOutput());
+      if (getOutput().substr(getOutput().length - 1) == ".") {
+        output = output + ".";
+      }
       output = output + number.innerText;
       printOutput(output);
     }
@@ -80,7 +83,16 @@ function getFormattedNumber(num) {
     return "";
   }
   const n = Number(num);
-  const value = n.toLocaleString("en");
+  if (!Number.isInteger(n)) {
+    return n;
+  }
+  if (num.indexOf(".") != -1 && num.substr(num.length - 1) != ".") {
+    return n;
+  }
+  let value = n.toLocaleString("en");
+  if (num.substr(num.length - 1) == ".") {
+    value = value + ".";
+  }
   return value;
 }
 function reverseNumberFormat(num) {
