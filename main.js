@@ -8,6 +8,14 @@ operators.forEach((operator) => {
   });
 });
 
+// Handle click on number buttons
+const numbers = document.querySelectorAll(".number");
+numbers.forEach((number) => {
+  number.addEventListener("click", () => {
+    alert("The number clicked:" + number.id);
+  });
+});
+
 // Functions
 function getHistory() {
   return document.getElementById("history-value").innerText;
