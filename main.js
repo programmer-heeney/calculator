@@ -86,12 +86,16 @@ function getFormattedNumber(num) {
   if (!Number.isInteger(n)) {
     return n;
   }
-  if (num.indexOf(".") != -1 && num.substr(num.length - 1) != ".") {
-    return n;
+  if (isNaN(num)) {
+    if (num.indexOf(".") != -1 && num.substr(num.length - 1) != ".") {
+      return n;
+    }
   }
   let value = n.toLocaleString("en");
-  if (num.substr(num.length - 1) == ".") {
-    value = value + ".";
+  if (!Number.isInteger(num)) {
+    if (num.substr(num.length - 1) == ".") {
+      value = value + ".";
+    }
   }
   return value;
 }
