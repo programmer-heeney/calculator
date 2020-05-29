@@ -12,7 +12,7 @@ operators.forEach((operator) => {
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    alert("The number clicked:" + number.id);
+    printOutput(reverseNumberFormat(getOutput()) + number.innerText);
   });
 });
 
@@ -23,14 +23,14 @@ function getHistory() {
 function printHistory(num) {
   document.getElementById("history-value").innerText = num;
 }
-function getOutput(num) {
+function getOutput() {
   return document.getElementById("output-value").innerText;
 }
 function printOutput(num) {
   document.getElementById("output-value").innerText = getFormattedNumber(num);
 }
 function getFormattedNumber(num) {
-  if (num == "") {
+  if (num == "" || num == ".") {
     return num;
   }
   const n = Number(num);
